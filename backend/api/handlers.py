@@ -27,6 +27,9 @@ class LocationHandler(BaseHandler):
 		)),
 		('products',(
 			'id', 'name', 'qualified_name',
+			('category', (
+				'id', 'name',
+			)),
 			('manufacturer', (
 				'id', 'name',
 			))
@@ -47,6 +50,9 @@ class ProductListHandler(BaseHandler):
 	#model = Product
 	fields = (
 		'id', 'qualified_name', 'name',
+		('category', (
+			'id', 'name',
+		)),
 		('manufacturer', (
 			'id','name'
 		)),
@@ -63,6 +69,9 @@ class ProductHandler(BaseHandler):
 	#model = Product
 	fields = (
 		'id', 'qualified_name', 'name', 'description', 'url',
+		('category', (
+			'id', 'name',
+		)),
 		('manufacturer', (
 			'id','name'
 		)),

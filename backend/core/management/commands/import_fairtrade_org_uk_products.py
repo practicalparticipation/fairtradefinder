@@ -21,18 +21,24 @@ class Command(NoArgsCommand):
 			except Product.DoesNotExist:
 				product = Product(fairtrade_org_uk_key=product_data['key'])
 			
-			manufacturer, created = BusinessEntity.objects.get_or_create(name=product_data['manufacturer'])
+			if product_data['manufacturer'] == 'N/A':
+				manufacturer = None
+			else:
+				manufacturer, created = BusinessEntity.objects.get_or_create(name=product_data['manufacturer'])
 			
 			category = None
 			# walk down category tree
 			for category_name in product_data['category'].split('/'):
-				try:
-					if not category:
+				if not category:
+					try:
 						category = ProductCategory.get_root_nodes().get(name=category_name)
-					else:
+					except ProductCategory.DoesNotExist:
+						category = ProductCategory.add_root(name=category_name)
+				else:
+					try:
 						category = category.get_children().get(name=category_name)
-				except ProductCategory.DoesNotExist:
-					raise Exception("Failed to locate category: %s" % product_data['category'])
+					except ProductCategory.DoesNotExist:
+						category = category.add_child(name=category_name)
 			
 			product.name = product_data['name']
 			product.manufacturer = manufacturer
