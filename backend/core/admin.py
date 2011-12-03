@@ -1,8 +1,11 @@
 from django.contrib import admin
-from core.models import BusinessEntity, Location, Locale
+from core.models import BusinessEntity, Location, Locale, Product
 
 class LocationInline(admin.TabularInline):
 	model = Location
 
-admin.site.register(BusinessEntity, inlines=[LocationInline])
+class ProductInline(admin.TabularInline):
+	model = Product
+
+admin.site.register(BusinessEntity, inlines=[LocationInline, ProductInline])
 admin.site.register(Locale)
