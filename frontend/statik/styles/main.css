@@ -99,9 +99,13 @@ header nav a {
 
 /* Search */
 
+div#search {
+
+}
+
 form#search {
 	background:#fff;
-	padding:1em;
+	padding:1.5em 1.5em 0 1.5em;
 	border-radius:8px;
 	clear:both;
 	border:solid 1px #aaa;
@@ -118,10 +122,10 @@ div#search label {
 }
 
 form#search input, form#search select {
-	width:90%;
-	color:#ccc;
+	width:100%;
+	color:#555;
 	border:solid 1px #aaa;
-	padding:.5em;
+	padding:.5em 0;
 	display:block;
 	margin:.8em 0 1.2em 0;
 }
@@ -129,6 +133,20 @@ form#search input, form#search select {
 form#search select {
 	color:#555;
 }	
+
+form#search .submit {
+	background:#4fa3bd;
+	color:#fff;
+	text-shadow:0 1px #666;
+	border-radius:6px;
+	font-size:1.2em;
+	border:0;
+}
+
+form#search .submit:hover {
+	cursor:pointer;
+	background:#e8ab27;
+}
 
 #search li {
 	display:block;
@@ -139,6 +157,7 @@ form#search select {
 
 #news {
 	margin-top:3em;
+
 }
 
 .news-col {
@@ -151,3 +170,23 @@ form#search select {
 	margin:0;
 }
 
+/* Footer */
+
+footer {
+	width:960px;
+	margin:0 auto;
+	clear:both;
+	padding:1em 0;
+	border-top:solid 1px #cae0e7;
+	position:absolute;
+	bottom:0;
+}
+
+footer a {
+	font-size:0.75em;
+	float:left;
+	margin-right:1.5em;
+	color:#899ba1;
+	text-shadow:0 1px #fff;
+	text-decoration:none;
+}
