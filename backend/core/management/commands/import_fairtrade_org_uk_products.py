@@ -1,5 +1,5 @@
 from django.core.management.base import NoArgsCommand
-from core.models import Product, BusinessEntity
+from core.models import Product, BusinessEntity, ProductCategory
 import urllib2
 try:
 	import simplejson as json
@@ -23,8 +23,20 @@ class Command(NoArgsCommand):
 			
 			manufacturer, created = BusinessEntity.objects.get_or_create(name=product_data['manufacturer'])
 			
+			category = None
+			# walk down category tree
+			for category_name in product_data['category'].split('/'):
+				try:
+					if not category:
+						category = ProductCategory.get_root_nodes().get(name=category_name)
+					else:
+						category = category.get_children().get(name=category_name)
+				except ProductCategory.DoesNotExist:
+					raise Exception("Failed to locate category: %s" % product_data['category'])
+			
 			product.name = product_data['name']
 			product.manufacturer = manufacturer
+			product.category = category
 			if product_data['description']:
 				product.description = product_data['description']
 			if product_data['url']:

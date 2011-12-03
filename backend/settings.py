@@ -102,6 +102,11 @@ TEMPLATE_DIRS = (
     os.path.join(ROOT_DIR, 'templates'),
 )
 
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+TEMPLATE_CONTEXT_PROCESSORS += (
+	'django.core.context_processors.request',
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -114,6 +119,7 @@ INSTALLED_APPS = (
     'south',
     'devserver',
     'django_bcrypt',
+    'treebeard',
     
     'core',
 )

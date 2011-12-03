@@ -1,5 +1,6 @@
 from django.contrib.gis.db import models
 from django.template.defaultfilters import slugify
+from treebeard.mp_tree import MP_Node
 
 class Locale(models.Model):
 	name = models.CharField(max_length=255)
@@ -35,9 +36,36 @@ class Location(models.Model):
 	def __unicode__(self):
 		return self.qualified_name
 
+class ProductCategory(MP_Node):
+	name = models.CharField(max_length=255)
+	description = models.TextField(blank=True, null=True)
+	url = models.URLField(blank=True, null=True)
+	
+	node_order_by = ['name']
+	
+	def __unicode__(self):
+		return self.name
+	
+	class Meta:
+		verbose_name_plural = 'product categories'
+
 class Product(models.Model):
 	name = models.CharField(max_length=255)
+	category = models.ForeignKey(ProductCategory, related_name='products')
 	manufacturer = models.ForeignKey(BusinessEntity, related_name='products', blank=True, null=True)
 	description = models.TextField(blank=True, null=True)
 	url = models.URLField(blank=True, null=True)
 	fairtrade_org_uk_key = models.CharField(max_length=255, blank=True, null=True)
+	
+	def __unicode__(self):
+		if self.manufacturer:
+			return "%s %s" % (self.manufacturer.name, self.name)
+		else:
+			return self.name
+
+class Offering(models.Model):
+	location = models.ForeignKey(Location, related_name='offerings')
+	product = models.ForeignKey(Product, related_name='offerings')
+	
+	def __unicode__(self):
+		return "%s at %s" % (self.product, self.location)
