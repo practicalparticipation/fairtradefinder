@@ -25,8 +25,12 @@ class Location(models.Model):
 	lon = models.FloatField(blank = True, null = True)
 	lat = models.FloatField(blank = True, null = True)
 	
-	def __unicode__(self):
+	@property
+	def qualified_name(self):
 		if self.name:
 			return "%s - %s" % (self.business_entity.name, self.name)
 		else:
 			return self.business_entity.name
+	
+	def __unicode__(self):
+		return self.qualified_name
