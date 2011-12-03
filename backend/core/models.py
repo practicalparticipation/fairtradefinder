@@ -1,4 +1,12 @@
-from django.db import models
+from django.contrib.gis.db import models
+from django.template.defaultfilters import slugify
+
+class Locale(models.Model):
+	name = models.CharField(max_length=255)
+	slug = models.SlugField()
+	
+	def __unicode__(self):
+		return self.name
 
 class BusinessEntity(models.Model):
 	name = models.CharField(max_length=255)
