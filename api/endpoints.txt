@@ -6,6 +6,6 @@ Available API endpoints
 	details of the location with the specified ID
 
 /api/{locale}/products/
-	list of all products (TODO: will be all products available in the specified locale)
+	list of all products available in the specified locale
 /api/{locale}/product/{id}/
 	details of the product with the specified ID

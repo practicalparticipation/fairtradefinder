@@ -25,6 +25,7 @@ class Location(models.Model):
 	address = models.TextField()
 	lon = models.FloatField(blank = True, null = True)
 	lat = models.FloatField(blank = True, null = True)
+	products = models.ManyToManyField('Product', through='Offering')
 	
 	@property
 	def qualified_name(self):
@@ -56,12 +57,17 @@ class Product(models.Model):
 	description = models.TextField(blank=True, null=True)
 	url = models.URLField(blank=True, null=True)
 	fairtrade_org_uk_key = models.CharField(max_length=255, blank=True, null=True)
+	locations = models.ManyToManyField('Location', through='Offering')
 	
-	def __unicode__(self):
+	@property
+	def qualified_name(self):
 		if self.manufacturer:
 			return "%s %s" % (self.manufacturer.name, self.name)
 		else:
 			return self.name
+	
+	def __unicode__(self):
+		return self.qualified_name
 
 class Offering(models.Model):
 	location = models.ForeignKey(Location, related_name='offerings')
