@@ -1,0 +1,11 @@
+Available API endpoints
+
+/api/{locale}/locations/
+	list of all locations (shops) in the specified locale
+/api/{locale}/location/{id}/
+	details of the location with the specified ID
+
+/api/{locale}/products/
+	list of all products (TODO: will be all products available in the specified locale)
+/api/{locale}/product/{id}/
+	details of the product with the specified ID
