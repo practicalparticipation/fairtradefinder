@@ -9,6 +9,9 @@ class LocationListHandler(BaseHandler):
 		('business_entity', (
 			'id', 'name',
 		)),
+		('category', (
+			'id', 'name',
+		)),
 	)
 	
 	def read(self, request, locale_slug):
@@ -24,6 +27,9 @@ class LocationHandler(BaseHandler):
 		'id', 'qualified_name', 'name', 'address', 'lon', 'lat',
 		('business_entity', (
 			'id','name',
+		)),
+		('category', (
+			'id', 'name',
 		)),
 		('products',(
 			'id', 'name', 'qualified_name',
@@ -78,6 +84,9 @@ class ProductHandler(BaseHandler):
 		('locations',(
 			'id', 'qualified_name', 'name', 'address', 'lon', 'lat',
 			('business_entity', (
+				'id', 'name',
+			)),
+			('category', (
 				'id', 'name',
 			)),
 		)),
