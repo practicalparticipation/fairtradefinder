@@ -172,14 +172,21 @@ form#search .submit:hover {
 
 /* Footer */
 
-#footer-container {
-	width:100%;
-	background:#fff;
-	border-top:solid 3px #aaa;
-}
-
 footer {
 	width:960px;
 	margin:0 auto;
 	clear:both;
+	padding:1em 0;
+	border-top:solid 1px #cae0e7;
+	position:absolute;
+	bottom:0;
+}
+
+footer a {
+	font-size:0.75em;
+	float:left;
+	margin-right:1.5em;
+	color:#899ba1;
+	text-shadow:0 1px #fff;
+	text-decoration:none;
 }
