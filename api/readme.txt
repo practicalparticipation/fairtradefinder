@@ -17,12 +17,22 @@ The API is to consist of two parts:
    
 Data to be verified and unverified (level of trustworthyness).
 
-Info acquisition:
+Info acquisition URL scheme:
 
-/BASE/LOCALISATION/LONG/LAT/RADIUS
-/BASE/LOCALISATION/SHOPNAME/BASEINFO
-/BASE/LOCALISATION/SHOPNAME/PRODUCTLIST
-/BASE/LOCALISATION/PRODUCTNAME/INFO
-/BASE/LOCALISATION/PRODUCTNAME/SHOPLIST
+/localisation/long/lat/radius
+Returns a list of shops in the radius of a specified location
 
+/localisation/baseshopinfo/id
+Returns basic shop information based on shop id
 
+/localisation/shopproductlist/id
+Returns a product list for a given shop based on shop id. Think about limits and pagination
+
+/localisation/productinfo/id
+Returns basic shop information based on product id
+
+/localisation/listproductretailers/id
+Returns a list of stores retailing a particular product based on product id.
+
+/localisation/listproductretailers/id/long/lat/radius
+Same as above but narrowed down to user location.
