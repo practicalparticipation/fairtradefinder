@@ -54,7 +54,7 @@ class ProductListHandler(BaseHandler):
 	
 	def read(self, request, locale_slug):
 		locale = Locale.objects.get(slug=locale_slug)
-		base = Product.objects.all()
+		base = Product.objects.filter(location__locale=locale)
 		
 		return base.all()
 
