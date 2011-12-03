@@ -36,13 +36,6 @@ class Location(models.Model):
 	def __unicode__(self):
 		return self.qualified_name
 
-class Product(models.Model):
-	name = models.CharField(max_length=255)
-	manufacturer = models.ForeignKey(BusinessEntity, related_name='products', blank=True, null=True)
-	description = models.TextField(blank=True, null=True)
-	url = models.URLField(blank=True, null=True)
-	fairtrade_org_uk_key = models.CharField(max_length=255, blank=True, null=True)
-
 class ProductCategory(MP_Node):
 	name = models.CharField(max_length=255)
 	description = models.TextField(blank=True, null=True)
@@ -55,3 +48,12 @@ class ProductCategory(MP_Node):
 	
 	class Meta:
 		verbose_name_plural = 'product categories'
+
+class Product(models.Model):
+	name = models.CharField(max_length=255)
+	category = models.ForeignKey(ProductCategory, related_name='products')
+	manufacturer = models.ForeignKey(BusinessEntity, related_name='products', blank=True, null=True)
+	description = models.TextField(blank=True, null=True)
+	url = models.URLField(blank=True, null=True)
+	fairtrade_org_uk_key = models.CharField(max_length=255, blank=True, null=True)
+
