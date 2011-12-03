@@ -115,7 +115,7 @@ INSTALLED_APPS = (
     'devserver',
     'django_bcrypt',
     
-    # your apps here
+    'core',
 )
 
 # A sample logging configuration. The only tangible logging
