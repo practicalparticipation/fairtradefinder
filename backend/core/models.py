@@ -18,10 +18,22 @@ class BusinessEntity(models.Model):
 	class Meta:
 		verbose_name_plural = 'business entities'
 
+class LocationCategory(MP_Node):
+	name = models.CharField(max_length=255)
+	
+	node_order_by = ['name']
+	
+	def __unicode__(self):
+		return self.name
+	
+	class Meta:
+		verbose_name_plural = 'location categories'
+
 class Location(models.Model):
 	business_entity = models.ForeignKey(BusinessEntity, related_name = 'locations')
 	locale = models.ForeignKey(Locale, related_name = 'locations')
 	name = models.CharField(max_length=255, blank = True, null = True)
+	category = models.ForeignKey(LocationCategory, related_name='locations')
 	address = models.TextField()
 	postcode = models.CharField(max_length=16, blank=True, null=True)
 	lon = models.FloatField(blank = True, null = True)

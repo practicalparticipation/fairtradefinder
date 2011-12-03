@@ -1,6 +1,6 @@
 from django.contrib import admin
 from treebeard.admin import TreeAdmin
-from core.models import BusinessEntity, Location, Locale, Product, ProductCategory, Offering
+from core.models import *
 
 class LocationInline(admin.TabularInline):
 	model = Location
@@ -16,4 +16,5 @@ admin.site.register(BusinessEntity, inlines=[LocationInline, ProductInline])
 admin.site.register(Locale)
 admin.site.register(Product, list_display = ['name', 'manufacturer', 'category'])
 admin.site.register(ProductCategory, TreeAdmin)
+admin.site.register(LocationCategory, TreeAdmin)
 admin.site.register(Location, inlines=[OfferingInline])

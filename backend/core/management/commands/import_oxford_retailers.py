@@ -1,6 +1,6 @@
 from django.core.management.base import NoArgsCommand
 from django.conf import settings
-from core.models import Locale, BusinessEntity, Location, Product, ProductCategory, Offering
+from core.models import *
 import csv, os
 
 PATH = os.path.join(settings.ROOT_DIR, 'data/OxfordRetailers2011.csv')
@@ -18,13 +18,39 @@ class Command(NoArgsCommand):
 		
 		for row in reader:
 			business, created = BusinessEntity.objects.get_or_create(name=row['Name of business'])
-			location, created = Location.objects.get_or_create(
-				locale=oxford,
-				business_entity=business,
-				name=row['Address'],
-				defaults={'address': row['Address'], 'postcode': row['Postcode']}
-			)
 			
+			location_category = None
+			for category_name in row['Type of business'].split('/'):
+				if not location_category:
+					try:
+						location_category = LocationCategory.get_root_nodes().get(name=category_name)
+					except LocationCategory.DoesNotExist:
+						location_category = LocationCategory.add_root(name=category_name)
+				else:
+					try:
+						location_category = location_category.get_children().get(name=category_name)
+					except LocationCategory.DoesNotExist:
+						location_category = location_category.add_child(name=category_name)
+			
+			try:
+				location = Location.objects.get(
+					locale=oxford,
+					business_entity=business,
+					name=row['Address'],
+				)
+				location.category = location_category
+				location.address = row['Address']
+				location.postcode = row['Postcode']
+				location.save()
+			except Location.DoesNotExist:
+				location = Location.objects.create(
+					locale=oxford,
+					business_entity=business,
+					name=row['Address'],
+					address=row['Address'],
+					postcode=row['Postcode'],
+					category=location_category,
+				)
 			location.offerings.all().delete()
 			for product_key in row['Key'].split(';'):
 				if product_key:
