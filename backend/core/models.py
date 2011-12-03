@@ -19,6 +19,7 @@ class BusinessEntity(models.Model):
 
 class Location(models.Model):
 	business_entity = models.ForeignKey(BusinessEntity, related_name = 'locations')
+	locale = models.ForeignKey(Locale, related_name = 'locations')
 	name = models.CharField(max_length=255, blank = True, null = True)
 	address = models.TextField()
 	lon = models.FloatField(blank = True, null = True)
