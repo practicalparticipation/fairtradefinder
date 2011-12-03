@@ -56,7 +56,7 @@ class ProductListHandler(BaseHandler):
 		locale = Locale.objects.get(slug=locale_slug)
 		base = Product.objects.filter(location__locale=locale)
 		
-		return base.all()
+		return base.distinct()
 
 class ProductHandler(BaseHandler):
 	allowed_methods = ('GET',)

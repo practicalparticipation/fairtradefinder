@@ -23,6 +23,7 @@ class Location(models.Model):
 	locale = models.ForeignKey(Locale, related_name = 'locations')
 	name = models.CharField(max_length=255, blank = True, null = True)
 	address = models.TextField()
+	postcode = models.CharField(max_length=16, blank=True, null=True)
 	lon = models.FloatField(blank = True, null = True)
 	lat = models.FloatField(blank = True, null = True)
 	products = models.ManyToManyField('Product', through='Offering')

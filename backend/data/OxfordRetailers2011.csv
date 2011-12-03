@@ -1,0 +1,110 @@
+Name of business,Address,Postcode,Type of business,Key
+Lush,57 Cornmarket Street,OX1 3HA,Retail/Cosmetics,toothpaste-generic;lotion-generic;soap-generic
+Thorntons,3c Westgate Centre,OX1 1NU,Retail/Confectioner,chocolate-generic
+Thorntons,48 Cornmarket Street,OX1 3HA,Retail/High Street Shop,chocolate-generic
+Marks & Spencer,13-18 Queen Street,OX1 1AB,Retail/Supermarket,tea-generic;bananas-generic;coffee-generic;chocolate-generic;wine-generic;sugar-generic;jams_spreads-generic
+Cardew & Co Tea and Coffee,"131-136 The Covered Market, Oxford",OX1 3DZ,Retail/Independent Retailer,coffee-generic;tea-generic
+Nothing,"Avenue 4, The Covered Market, Oxford",OX1 3DZ,Retail/Clothing,jewelery-generic;jewelery-generic
+Oxfam Book Shop,St Giles,OX1 3LU,Retail/Charity Shop,tea-generic;coffee-generic;giftwrap-generic;handicrafts-generic
+Woodstock Rd Deli,15 Woodstock Rd,OX2 6HA,Retail/Food Shop,biscuits-generic;tea-generic;cocoa-generic
+Globe Newsagents,17 Woodstock Rd,OX2 6HA,Retail/Newsagent,chocolate-generic;cocoa-generic;sugar-generic
+East West Provisions,61a Woodstock Rd,OX2 6HJ,Retail/Food Shop,chocolate-generic;ice_cream-generic;tea-generic;sugar-generic;wine-generic;coffee-generic;coffee-generic;cocoa-generic
+Court Candy,65 Woodstock Rd,OX2 6HJ,Retail/Confectioner,chocolate-generic;chocolate-generic
+Tuck Shop,"Holywell St, Oxford",OX1 3SB,Catering/Cafe,chocolate-generic;chocolate-generic
+Tesco,St Aldates,OX1 1RA,Retail/Supermarket,coffee-generic;chocolate-generic;tea-generic;cocoa-generic;bananas-generic
+Tesco,Magdalen Street,OX1 3AD,Retail/Supermarket,
+Exclusive Roots,"8 Woodstock Road, Oxford",OX2 6HT,Retail/Clothing,clothing-generic;jewelery-generic;homewares-generic
+Marks & Spencer,Woodstock Road,OX2 8LA,Retail/Clothing,
+Sainsbury,21 Westgate,OX1 1PA,Retail/Supermarket,
+Sainsbury,7 Magdalen Street,OX1 3AD,Retail/Supermarket,
+Boots,6-8 Cornmarket street,OX1 3HL,Retail/Pharmacy,
+Oxfam,17 Broad Street,OX1 3AS,Retail/Charity Shop,
+Oxfam Book Shop,15 Turl Street,OX1 3DQ,Retail/Charity Shop,
+Marks & Spencer,Oxford Station,OX1 1HS,Retail/Supermarket,
+Holland & Barrett,Golden Cross Arcade,OX1 3EU,Retail/High Street Shop,
+Holland & Barrett,Unit 17 Westgate Centre,OX1 1NX,Retail/High Street Shop,
+Co-operative,42 Walton Street,OX2 6,Retail/Supermarket,tea-generic;coffee-generic;chocolate-generic;sugar-generic
+Londis,Walton Street,OX2 6EA,Retail/Food Shop,
+Taylors,"239A Banbury Road, Summertown, ",OX2 7HN,Retail/Food Shop,ben_and_jerry's_icecream-generic;chocolate-generic
+Boots,221 Banbury Road,OX2 7HQ,Retail/Pharmacy,botanics_cotton_buds-generic;body_butter-generic
+Oxfam,223 Banbury Road ,OX2 7HQ,Retail/Charity Shop,coffee-generic;cocoa-generic;cocoa-generic;honey-generic;nuts-generic;sugar-generic;cereals_&_bars-generic;biscuits-generic;lip_balm-generic;soap-generic
+Unique Creations,"263 Banbury Road, Summertown, ",OX2 7HN,Retail/Crafts,basketware-generic
+Marks & Spencer,242 Banbury Road ,OX2 7GB,Retail/Supermarket,coffee-generic;tea-generic;bananas-generic
+Jono,24 Little Clarendon St,OX1 2,Retail/Clothing,jewelery-generic
+Chocology,Covered Market, OX1 3DU,Retail/Confectioner,chocolate-generic
+Holland & Barrett,"241 Banbury Road
+Summertown",OX2 7HN,Retail/Food Shop,generic-generic;coffee-generic;juice_&_soft_drinks-generic;quinoa-generic
+Tesco,263 Banbury Road ,OX2 7HN,Retail/Supermarket,nuts-generic;tea-generic;ben_and_jerry's_icecream-generic;chocolate-generic;chocolate-generic
+Co-operative,217 Cowley Road,OX4 1,Retail/Supermarket,coffee-generic;tea-generic;chocolate-generic;sugar-generic;cereals_&_bars-generic;instant_bbq-generic;wine-generic
+Oxfam,135 Cowley Road,OX4 1HU,Retail/Charity Shop,coffee-generic;cocoa-generic;cocoa-generic;honey-generic;nuts-generic;sugar-generic;cereals_&_bars-generic;biscuits-generic;lip_balm-generic;soap-generic
+Sainsbury,134b Cowley Road,OX4 1JH,Retail/Supermarket,
+Sainsbury,The Plain,OX4 1DS,Retail/Supermarket,
+Maroc Deli,66 Cowley Road,OX4 1,Retail/Food Shop,chocolate-generic
+Indigo,62  Cowley Road,OX4 1,Retail/Independent Retailer,clothing-generic;jewelery-generic;handicrafts-generic
+Uhuru,48  Cowley Road,OX4 1,Retail/Food Shop,coffee-generic;chocolate-generic;cereal-generic
+Tesco,159-161 COWLEY ROAD,OX4 1UT,Retail/Supermarket,
+Tesco,UNIT 7 OXFORD RETAIL PARK,OX4 6XJ,Retail/Supermarket,
+Boots,151a Cowley Rd,OX4 1UT,Retail/Pharmacy,
+Boots,Templars square,OX4 3UZ,Retail/Pharmacy,
+Boots,Unit 4 Oxford Retail Park,OX4 6XJ,Retail/Pharmacy,
+Marks & Spencer,Unit 2 Oxford Retail Park,OX4 6XJ,Retail/Pharmacy,
+Holland & Barrett,15 Templars square,OX4 3UZ,Retail/High Street Shop,
+Blockbuster,73 London Road,OX3 9,Retail/General,chocolate-generic;ice_cream-generic
+Boots,96 London Road,OX3 9AJ,Retail/Pharmacy,chocolate-generic;body_wash_-generic
+Crown Newsagents,99 London Road,OX3 9,Retail/Newsagent,chocolate-generic;coffee-generic
+Holland & Barrett,100 London Road,OX3 9AJ,Retail/High Street Shop,coffee-generic;tea-generic;chocolate-generic
+Iceland,108/110 London Road,OX3 9,Retail/Food Shop,chocolate-generic;sugar-generic
+Co-operative,152 London Road,OX3 9,Retail/Supermarket,coffee-generic;tea-generic;chocolate-generic;wine-generic
+Oxfam,83/85 London Road,OX3 9AE,Retail/Charity Shop,coffee-generic;tea-generic;handicrafts-generic
+Starbucks,71 London Road,OX3 9,Catering/Coffee Shop,coffee-generic;chocolate-generic
+Waitrose,9 Old High Street,OX3 9,Retail/Food Shop,coffee-generic;tea-generic;chocolate-generic;wine-generic
+The Windmill,104 London Road,OX3 9,Retail/Independent Retailer,coffee-generic;tea-generic;cereals_&_bars-generic;beauty-generic;handicrafts-generic
+Co-operative,"13 New Road, OX1",OX1 1,Retail/Supermarket,
+Co-operative,15 Old Marston Road,OX3 0,Retail/Supermarket,
+Co-operative,297 Iffley Road,OX4 4,Retail/Supermarket,
+Co-operative,22 Cherwell Drive,OX3 0,Retail/Supermarket,
+Co-operative,74 Rose Hill,OX4 4,Retail/Supermarket,
+Co-operative,21 Templars Square,OX2 8,Retail/Supermarket,
+Co-operative,17/19 Atkyns Road,OX3 8,Retail/Supermarket,
+Combibos Coffee,93 Gloucester Green,OX1 2BU,Catering/Cafe,coffee-generic;tea-generic;sugar-generic
+Cafe 42,42 George Street,OX1 2AQ,Catering/Cafe,coffee-generic;tea-generic
+Giraffe,71 George Street,OX1 2BQ,Catering/Restaurant,coffee-generic;wine-generic
+Brasserie Gerard,41-47 George Street,OX1 2BE,Catering/Restaurant,coffee-generic;tea-generic
+AMT,Cornmarket Street,OX1 3EY,Catering/Coffee Shop,coffee-generic;tea-generic;cakes-generic
+Pret A Manger,26-27 Cornmarket Street,OX1 3EY,Catering/Cafe,coffee-generic;bananas-generic
+EAT,5 Queen Street,OX1 1EJ,Catering/Cafe,coffee-generic;tea-generic
+Marks & Spencer Cafe,13-18 Queen Street,OX1 1AB,Catering/Cafe,coffee-generic;tea-generic
+Art Cafe,14 Bonn Square,OX1 1EU,Catering/Cafe,coffee-generic;tea-generic;cocoa-generic;bananas-generic;cakes-generic;cereals_&_bars-generic;sugar-generic;juice_&_soft_drinks-generic;juice_&_soft_drinks-generic;ice_cream-generic
+AMT,Wesgate Centre/Queen Street,OX1 1PD,Catering/Coffee Shop,coffee-generic;tea-generic;cakes-generic
+Millies Cookies,Westgate Centre,OX1 1NZ,Catering/Coffee Shop,coffee-generic;sugar-generic;cocoa-generic
+Mortons,Covered Market,,Catering/Cafe,coffee-generic;tea-generic;chocolate-generic;sugar-generic
+Alpha Bar,Covered Market,,Catering/Cafe,coffee-generic;chocolate-generic
+Greens Cafe,St Giles,,Catering/Cafe,tea-generic;juice_&_soft_drinks-generic
+Mortons,39 Little Clarendon St,OX12HF,Catering/Cafe,coffee-generic;sugar-generic
+Mortons,,,Catering/Cafe,coffee-generic;sugar-generic
+Mortons,,,Catering/Cafe,coffee-generic;sugar-generic
+Fasta Pasta,,,Catering/Restaurant,ice_cream-generic;cocoa-generic
+George and Davis,55 Little Clarendon St,OX1 2HS,Catering/Cafe,coffee-generic;tea-generic;cocoa-generic
+Cornish pasty company,Cornmarket Street,,Catering/Cafe,coffee-generic;juice_&_soft_drinks-generic
+Pret A Manger,26-27 Cornmarket Street,OX1 3EY,Catering/Cafe,
+Millies Cookies,Clarendon Centre,OX1 3HJ,Catering/Coffee Shop,coffee-generic;sugar-generic;cocoa-generic
+George and Delilah,94 St Aldates,OX1 1,Catering/Restaurant,coffee-generic;tea-generic;ice_cream-generic
+Cafe Loco,85 St Aldate's,OX1 1,Catering/Cafe,tea-generic;sweets-generic
+Starbucks,27 High St,OX1 4DF,Catering/Coffee Shop,
+Far from the Madding Crowd,10-12 Friars Entry,,Retail/Pub,coffee-generic;wine-generic
+Starbucks,240 Banbury Road ,OX2 7,Catering/Cafe,coffee-generic;chocolate-generic
+Hacketts,270 Banbury Road ,OX2 7,Catering/Cafe,tea-generic;chocolate-generic
+M&S,242 Banbury Road ,OX2 7,Catering/Cafe,coffee-generic;tea-generic;cocoa-generic
+First Floor,158 Cowley Road,OX4 1UE,Catering/Restaurant,coffee-generic;cocoa-generic
+Restore,Manzil Way,,Catering/Cafe,coffee-generic;cocoa-generic;tea-generic
+Cous Cous ,19-20,,Catering/Cafe,coffee-generic;cocoa-generic
+George and Danver's,104 Cowley Road,OX4 1,Catering/Cafe,coffee-generic;tea-generic;ice_cream-generic
+Starbucks,240 Banbury Rd,OX2 7BY,Catering/Coffee Shop,
+Magic Cafe,Magdalen Road,OX4 1RQ,Catering/Cafe,
+Pegasus Theatre Cafe,Magdalen Road,OX4 1RE,Catering/Cafe,coffee-generic;juice_&_soft_drinks-generic;juice_&_soft_drinks-generic
+Starbucks,71 London Road,OX3 9AA,Catering/Coffee Shop,
+La CroissanterieÊ ,3-5 Old High Street,OX3 9,Catering/Cafe,
+Mojo,123 London Road,OX3 9,Catering/Cafe,
+AMT,Oxford Station,OX1 1HS,Catering/Coffee Shop,
+Cornish pasty company,Oxford Station,,Catering/Kiosk,coffee-generic;juice_&_soft_drinks-generic
+Vita Burst,Oxford Station,,Catering/Kiosk,juice_&_soft_drinks-generic;coffee-generic
