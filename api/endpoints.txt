@@ -1,7 +1,17 @@
 Available API endpoints
 
-/api/{locale}/locations/
-	list of all locations (shops) in the specified locale
+/api/{locale}/locations/?{param1=x&param2=y...}
+	list of all locations (shops) in the specified locale matching the chosen criteria.
+	Recognised parameters are:
+		business_id
+		business_name
+		product_id
+		product_name
+		product_category_id
+		product_category_name
+		location_category_id
+		location_category_name
+
 /api/{locale}/location/{id}/
 	details of the location with the specified ID
 
