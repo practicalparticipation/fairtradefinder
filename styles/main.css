@@ -1,0 +1,153 @@
+/* Faitrade Finder (Oxford) Main Styles. 
+Created at Random Hacks of Kindness, Oxford. */
+
+/* Base styles */
+
+* {
+	margin:0;
+	padding:0;
+}
+
+ul,li {
+	list-style:none;
+}
+
+html {
+	height:100%;
+}
+
+body {
+	height:100%;
+	background:#d4ebf2;
+	background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.1, rgb(226,241,245)),
+	color-stop(0.55, rgb(212,235,242))
+);
+	font-family:Arial, sans-serif;
+	height:100%;
+}
+
+header,footer,section { 
+	display:block;
+}
+
+#wrapper {
+	max-width:960px;
+	margin:0 auto;
+}
+
+/* Type */
+
+h1,h2,h3,h4 {
+	font-weight:normal;
+}
+
+p {
+	color:#777;
+	line-height:1.4em;
+	font-size:0.85em;
+	margin-bottom:1em;
+}
+
+h1 {
+	font-size:2em;
+	color:#666;
+	text-shadow:0 1px #fff;
+	font-style:italic;
+	font-family:Georgia;
+	margin:1.5em 0;
+	text-align:center;
+}
+
+.news-col h2 {
+	color:#666;
+	font-size:1.3em;
+	text-align:center;
+	margin-bottom:1em;
+}
+
+/* Header */
+
+header {
+	padding:1em 0;
+}
+
+header a.logo {
+	font-size:2em;
+	color:#555;
+	text-shadow:0 1px #fff;
+	text-decoration:none;
+	padding:1em 0;
+}
+
+header nav {
+	float:right;
+	padding:.3em .8em;
+}
+
+header nav a {
+	color:#888;
+	font-size:0.75em;
+	line-height:0;
+	font-family:Tahoma;
+	margin:0 .5em;
+}
+
+
+/* Search */
+
+form#search {
+	background:#fff;
+	padding:1em;
+	border-radius:8px;
+	clear:both;
+	border:solid 1px #aaa;
+	box-shadow:0 0 10px #ccc;
+	margin:0 auto;
+	width:60%;
+}
+
+div#search label {
+	text-align:center;
+	color:#666;
+	padding:1em 0;
+	font-size:1.1em;
+}
+
+form#search input, form#search select {
+	width:90%;
+	color:#ccc;
+	border:solid 1px #aaa;
+	padding:.5em;
+	display:block;
+	margin:.8em 0 1.2em 0;
+}
+
+form#search select {
+	color:#555;
+}	
+
+#search li {
+	display:block;
+	margin-bottom:1em;
+}
+
+/* Home News */
+
+#news {
+	margin-top:3em;
+}
+
+.news-col {
+	float:left;
+	width:30%;
+	margin-right:30px;
+}
+
+.news-col:last-child {
+	margin:0;
+}
+
