@@ -56,4 +56,16 @@ class Product(models.Model):
 	description = models.TextField(blank=True, null=True)
 	url = models.URLField(blank=True, null=True)
 	fairtrade_org_uk_key = models.CharField(max_length=255, blank=True, null=True)
+	
+	def __unicode__(self):
+		if self.manufacturer:
+			return "%s %s" % (self.manufacturer.name, self.name)
+		else:
+			return self.name
 
+class Offering(models.Model):
+	location = models.ForeignKey(Location, related_name='offerings')
+	product = models.ForeignKey(Product, related_name='offerings')
+	
+	def __unicode__(self):
+		return "%s at %s" % (self.product, self.location)
