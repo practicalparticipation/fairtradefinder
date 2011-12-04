@@ -45,6 +45,8 @@ class Location(models.Model):
 	point = models.PointField(blank=True, null=True)
 	products = models.ManyToManyField('Product', through='Offering')
 	
+	objects = models.GeoManager()
+	
 	def geocode(self):
 		address = "%s, %s, %s, UK" % (self.address, self.locale.name, self.postcode)
 		lookup_url = "http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false" % urllib.quote(address.encode("utf-8"))
@@ -61,6 +63,19 @@ class Location(models.Model):
 			return "%s - %s" % (self.business_entity.name, self.name)
 		else:
 			return self.business_entity.name
+	
+	@property
+	def lng(self):
+		if self.point:
+			return self.point.x
+	@property
+	def lat(self):
+		if self.point:
+			return self.point.y
+	@property
+	def distance_metres(self):
+		if self.distance:
+			return self.distance.m
 	
 	def __unicode__(self):
 		return self.qualified_name

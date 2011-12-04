@@ -11,6 +11,9 @@ Available API endpoints
 		product_category_name
 		location_category_id
 		location_category_name
+		lat / lng - if passed, locations are returned in ascending order of distance,
+			and include a 'distance_metres' field
+		max_distance - maximum distance in metres; lat/lng must also be passed
 
 /api/{locale}/location/{id}/
 	details of the location with the specified ID
