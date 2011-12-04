@@ -45,7 +45,8 @@
 						$.getJSON('http://172.26.1.42:8888/api/oxford/locations/?callback=?', {
 							'lng': position.coords.longitude,
 							'lat': position.coords.latitude,
-							'product_name': 'coffee'
+							'product_name': 'coffee',
+							'limit': 10
 						}, function(results) {
 							for (i = 0; i < results.length; i++) {
 								showResult(results[i]);
