@@ -7,7 +7,7 @@ class LocationListHandler(BaseHandler):
 	allowed_methods = ('GET',)
 	#model = Location
 	fields = (
-		'id', 'qualified_name', 'name', 'address', 'lat', 'lng', 'distance_metres',
+		'id', 'qualified_name', 'name', 'address', 'postcode', 'lat', 'lng', 'distance_metres',
 		('business_entity', (
 			'id', 'name',
 		)),
@@ -74,7 +74,7 @@ class LocationHandler(BaseHandler):
 	allowed_methods = ('GET',)
 	#model = Location
 	fields = (
-		'id', 'qualified_name', 'name', 'address', 'lon', 'lat',
+		'id', 'qualified_name', 'name', 'address', 'postcode', 'lat', 'lng', 
 		('business_entity', (
 			'id','name',
 		)),
@@ -132,7 +132,7 @@ class ProductHandler(BaseHandler):
 			'id','name'
 		)),
 		('locations',(
-			'id', 'qualified_name', 'name', 'address', 'lon', 'lat',
+			'id', 'qualified_name', 'name', 'address', 'postcode', 'lat', 'lng', 
 			('business_entity', (
 				'id', 'name',
 			)),
