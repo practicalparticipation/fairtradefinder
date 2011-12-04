@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>fairtradefinder</title>
+		<style>
+			#map_canvas h4 {
+				margin: 0;
+			}
+		</style>
+		<script src="jquery-1.6.2.min.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+		<script>
+			$(function() {
+				var latlng = new google.maps.LatLng(53, -0.8);
+				var map = new google.maps.Map(document.getElementById("map_canvas"), {
+					zoom: 6,
+					center: latlng,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				});
+				
+				var infoWindow = new google.maps.InfoWindow({});
+				function showResult(result) {
+					var marker = new google.maps.Marker({
+						position: new google.maps.LatLng(result.lat, result.lng),
+						map: map
+					});
+					google.maps.event.addListener(marker, 'click', function() {
+						var infoContent = $('<div></div>');
+						infoContent.append(
+							$('<h4></h4>').text(result.business_entity.name),
+							$('<p></p>').text(result.address)
+						);
+						infoWindow.setContent(infoContent.get(0));
+						infoWindow.open(map, marker);
+					})
+				}
+				
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function(position) {
+						map.setCenter(
+							new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+						);
+						map.setZoom(15);
+						
+						$.getJSON('http://172.26.1.42:8888/api/oxford/locations/?callback=?', {
+							'lng': position.coords.longitude,
+							'lat': position.coords.latitude,
+							'product_name': 'coffee'
+						}, function(results) {
+							for (i = 0; i < results.length; i++) {
+								showResult(results[i]);
+							}
+						});
+					}, function(message) {
+						console.log(message);
+					});
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<div id="map_canvas" style="width: 640px; height: 480px"></div>
+	</body>
+</html>
