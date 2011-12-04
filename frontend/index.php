@@ -23,7 +23,7 @@ require_once('htmlbuilder.class.php');
  */
 
 $QUERY = Array(
-	'action' => 'shoplist', // a sensible default
+	'action' => 'home', // a sensible default
 	'id' => 0,
 	'long' => 0.00,
 	'lat' => 0.00, 
@@ -45,6 +45,10 @@ $out = new HTMLBuilder();
 
 switch ($QUERY['action'])
 {
+	
+	case 'home':
+		
+		break;
 	
 	case 'shoplist':
 		
