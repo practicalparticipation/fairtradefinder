@@ -1,11 +1,13 @@
 from piston.handler import BaseHandler
 from core.models import Location, Locale, Product, ProductCategory, LocationCategory
+from django.contrib.gis.geos import Point
+from django.contrib.gis.measure import D
 
 class LocationListHandler(BaseHandler):
 	allowed_methods = ('GET',)
 	#model = Location
 	fields = (
-		'id', 'qualified_name', 'name', 'address', 'lon', 'lat',
+		'id', 'qualified_name', 'name', 'address', 'lat', 'lng', 'distance_metres',
 		('business_entity', (
 			'id', 'name',
 		)),
@@ -54,6 +56,12 @@ class LocationListHandler(BaseHandler):
 			for root_category in root_categories:
 				categories += [root_category] + list(root_category.get_descendants())
 			base = base.filter(category__in = categories)
+		
+		if request.GET.get('lat') and request.GET.get('lng'):
+			my_location = Point(float(request.GET['lng']), float(request.GET['lat']))
+			base = base.distance(my_location).order_by('distance')
+			if request.GET.get('max_distance'):
+				base = base.filter(point__distance_lte=(my_location, D(m=request.GET['max_distance'])))
 		
 		return base.distinct()
 
