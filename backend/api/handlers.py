@@ -9,7 +9,7 @@ class LocationListHandler(BaseHandler):
 	fields = (
 		'id', 'qualified_name', 'name', 'address', 'postcode', 'lat', 'lng', 'distance_metres',
 		('business_entity', (
-			'id', 'name',
+			'id', 'name', 'website', 'twitter_name', 'facebook_name', 'youtube_name',
 		)),
 		('category', (
 			'id', 'name',
@@ -76,7 +76,8 @@ class LocationHandler(BaseHandler):
 	fields = (
 		'id', 'qualified_name', 'name', 'address', 'postcode', 'lat', 'lng', 
 		('business_entity', (
-			'id','name',
+			'id','name', 'website', 'twitter_name', 'facebook_name', 'youtube_name',
+			'notes'
 		)),
 		('category', (
 			'id', 'name',
@@ -110,7 +111,7 @@ class ProductListHandler(BaseHandler):
 			'id', 'name',
 		)),
 		('manufacturer', (
-			'id','name'
+			'id','name', 'website', 'twitter_name', 'facebook_name', 'youtube_name',
 		)),
 	)
 	
@@ -129,7 +130,8 @@ class ProductHandler(BaseHandler):
 			'id', 'name',
 		)),
 		('manufacturer', (
-			'id','name'
+			'id','name', 'website', 'twitter_name', 'facebook_name', 'youtube_name',
+			'notes'
 		)),
 		('locations',(
 			'id', 'qualified_name', 'name', 'address', 'postcode', 'lat', 'lng', 
