@@ -17,7 +17,22 @@ class Command(NoArgsCommand):
 			misc_category = ProductCategory.add_root(name='Miscellaneous')
 		
 		for row in reader:
+			if not row['Name of business']:
+				continue
+			
 			business, created = BusinessEntity.objects.get_or_create(name=row['Name of business'])
+			
+			if row['Notes']:
+				business.notes = row['Notes']
+			if row['Website']:
+				business.website = row['Website']
+			if row['Twitter']:
+				business.twitter_name = row['Twitter']
+			if row['Facebook']:
+				business.facebook_name = row['Facebook']
+			if row['YouTube']:
+				business.youtube_name = row['YouTube']
+			business.save()
 			
 			location_category = None
 			for category_name in row['Type of business'].split('/'):

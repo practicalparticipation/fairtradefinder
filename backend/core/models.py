@@ -17,6 +17,11 @@ class Locale(models.Model):
 
 class BusinessEntity(models.Model):
 	name = models.CharField(max_length=255)
+	notes = models.TextField(blank=True, null=True)
+	website = models.URLField(blank=True, null=True)
+	twitter_name = models.CharField(max_length=50, blank=True, null=True)
+	facebook_name = models.CharField(max_length=50, blank=True, null=True)
+	youtube_name = models.CharField(max_length=50, blank=True, null=True)
 	
 	def __unicode__(self):
 		return self.name
