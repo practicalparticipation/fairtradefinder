@@ -43,12 +43,33 @@ $retr = new Retriever();
 $conf = new Configuration();
 $out = new HTMLBuilder();
 
+require_once("templates/header-mobile.php");
+
 switch ($QUERY['action'])
 {
 	
-	case 'home':
-		
-		break;
+	case 'home': 
+	?>
+	<div data-role="content">	
+		<p>Welcome to Oxford Fair Trade Finder - helping you locate FAIRTRADE Mark and Fairly Traded products in Oxford City.</p>
+	</div>
+
+	<form action="index.php?action=keywordsearch" method="GET" data-ajax="false">
+		<div data-role="fieldcontain">
+	    <label for="KeywordSearch" class="ui-hidden-accessible">Search: </label>
+	    <input type="search" name="KeywordSearch" id="KeywordSearch" value="" />
+	    <input type="submit" value="Search" />
+		</div>
+	</form>
+	
+	<ul data-role="listview" data-inset="true" data-filter="false">
+		<li><a href="index.php?action=shoplist">Browse Retailers</a></li>
+		<li><a href="index.php?action=productlist">Browse Products</a></li>
+	</ul>		
+	
+	
+	
+<?php	break;
 	
 	case 'shoplist':
 		
@@ -90,5 +111,7 @@ switch ($QUERY['action'])
 		break;
 	
 }
+
+require_once("templates/footer-mobile.php");
 
 // proving grounds

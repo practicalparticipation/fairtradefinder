@@ -20,17 +20,16 @@ class HTMLBuilder
 	
 	public function buildShopListHTML($data)
 	{
-		$markup = '<section id="shoplist">';
+		$markup = '<ul data-role="listview">';
 		foreach ($data as $k => $shop)
 		{
-			$markup .= '<article>';
-				$markup .= '<h1>' . $shop->qualified_name . '</h1>';
-				$markup .= '<div class="address">' . 
+			$markup .= '<li>';
+				$markup .= '<a href="index.php?action=shopinfo&id='.$shop->id . '"><h3>' . $shop->qualified_name . '</h3>';
+				$markup .= '<p>' . 
 					nl2br( $shop->address ) . 
-					'</div>';
-			$markup .= '</article>';
+					'</p></a></li>';
 		}
-		$markup .= '</section>';
+		$markup .= '</ul>';
 		
 		return $markup;
 	}
@@ -38,14 +37,26 @@ class HTMLBuilder
 	public function buildShopInfoHTML($data)
 	{
 		$markup = '<article id="shop-info">';
+		$markup .= '<img src="http://maps.googleapis.com/maps/api/staticmap?center='.$data->lat.','.$data->lng.'&zoom=14&size=200x200&sensor=false&markers=color:blue%7C'.$data->lat.','.$data->lng.'" align="right"/>';
 			$markup .= '<h1>' . $data->qualified_name . '</h1>';
 			$markup .= '<div class="address">' . 
-					nl2br( $data->address ) . 
+					nl2br($data->address).", ". $data->postcode .  
 					'</div>';
 		$markup .= '</article>';
 		
-		// @todo : add Google Maps plot
-		// @todo : add ProductList when API implemented
+		$markup .= '<br clear="all"><h3>Products available here</h3>';
+		$markup .= '<div data-role="collapsible-set">';
+			$products = $this->sortProductsBySection($data->products);
+			foreach($products as $section) {
+				$markup .= '<div data-role="collapsible" data-theme="c" data-content-theme="d" data-collapsed="true">';
+				$markup .= '<h3>'.$section['name'].'</h3><ul>';
+				foreach($section['product'] as $product) {
+					$markup .= '<li><a href="index.php?action=productinfo&id='.$product->id .'">'.$product->name."</a></li>";
+				}
+				$markup .= "</ul></div>";
+				
+			}
+		$markup .= '</div>';		
 		
 		return $markup;
 	}
@@ -63,5 +74,12 @@ class HTMLBuilder
 		return $markup;
 	}
 	
+	public function sortProductsBySection($products) {
+		foreach($products as $product) {
+			$sections[$product->category->id]['name'] = $product->category->name;
+			$sections[$product->category->id]['product'][] = $product;
+		}
+		return $sections;
+	}
 	
 }
