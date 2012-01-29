@@ -74,3 +74,5 @@ class Command(NoArgsCommand):
 						defaults={'name':product_key, 'category':misc_category}
 					)
 					Offering.objects.create(location=location, product=product)
+			# Wait so that we don't overload the geocoder which should now run on each save. 
+			wait(2)

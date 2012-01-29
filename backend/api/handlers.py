@@ -63,11 +63,15 @@ class LocationListHandler(BaseHandler):
 			if request.GET.get('max_distance'):
 				base = base.filter(point__distance_lte=(my_location, D(m=request.GET['max_distance'])))
 		
+
 		results = base.distinct()
-		
+
+
+		if request.GET.get('offset'):
+		    results = results[request.GET.get('offset'):]
 		if request.GET.get('limit'):
-			results = results[:request.GET['limit']]
-		
+			results = results[:request.GET['limit']]		
+
 		return results
 
 class LocationHandler(BaseHandler):

@@ -1,6 +1,6 @@
 from django.contrib.gis.db import models
 from django.contrib.gis.geos import Point
-from django.template.defaultfilters import slugify
+from django.dispatch import receiver
 from treebeard.mp_tree import MP_Node
 import urllib
 try:
@@ -52,9 +52,17 @@ class Location(models.Model):
 	
 	objects = models.GeoManager()
 	
+	def save(self):
+		self.geocode()
+		super(Location, self).save()
+
 	def geocode(self):
-		address = "%s, %s, %s, UK" % (self.address, self.locale.name, self.postcode)
+		if(self.postcode):
+			address = "%s, UK" % (self.postcode)
+		else:	
+			address = "%s, %s, %s, UK" % (self.address, self.locale.name, self.postcode)
 		lookup_url = "http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false" % urllib.quote(address.encode("utf-8"))
+		print lookup_url
 		f = urllib.urlopen(lookup_url)
 		response = json.loads(f.read())
 		if len(response['results']):
@@ -123,3 +131,7 @@ class Offering(models.Model):
 	
 	def __unicode__(self):
 		return "%s at %s" % (self.product, self.location)
+
+
+
+    
