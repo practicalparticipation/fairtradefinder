@@ -2,6 +2,7 @@ from django.contrib.gis.db import models
 from django.contrib.gis.geos import Point
 from django.dispatch import receiver
 from treebeard.mp_tree import MP_Node
+from time import sleep
 import urllib
 try:
 	import simplejson as json
@@ -47,12 +48,12 @@ class Location(models.Model):
 	category = models.ForeignKey(LocationCategory, related_name='locations')
 	address = models.TextField()
 	postcode = models.CharField(max_length=16, blank=True, null=True)
-	point = models.PointField(blank=True, null=True)
+	point = models.PointField(blank=True, null=True,srid=27700)
 	products = models.ManyToManyField('Product', through='Offering')
 	
 	objects = models.GeoManager()
 	
-	def save(self):
+	def save(self, *args, **kwargs):
 		self.geocode()
 		super(Location, self).save()
 
@@ -92,6 +93,8 @@ class Location(models.Model):
 	
 	def __unicode__(self):
 		return self.qualified_name
+
+
 
 class ProductCategory(MP_Node):
 	name = models.CharField(max_length=255)

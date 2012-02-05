@@ -1,0 +1,32 @@
+{% extends "page.html" %}
+
+{% block title %}Locations with Fairtrade Products{% endblock %}
+
+{% block content %}
+<section id="shoplist">
+	<ul data-role="listview">
+	{% for location in list.object_list %}	
+			<li><a href="/view/location/{{location.id}}"><h3>{{ location.qualified_name }}</h3>
+				<p class="address">{{ location.address }}</p></a>
+			</li>
+	{% endfor %} 
+	</ul>
+</section>
+
+<div class="pagination" data-role="controlgroup" data-type="horizontal" style="clear: left;">
+    <span class="step-links">
+        {% if list.has_previous %}
+            <a data-role="button" data-theme="c" href="?page={{ list.previous_page_number }}">Back</a>
+        {% endif %}
+
+        <span class="current" data-role="button" data-theme="c">
+            Page {{ list.number }} of {{ list.paginator.num_pages }}.
+        </span>
+
+        {% if list.has_next %}
+            <a data-role="button" data-theme="c" href="?page={{ list.next_page_number }}">More</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

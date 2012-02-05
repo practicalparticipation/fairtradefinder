@@ -82,7 +82,7 @@ STATICFILES_FINDERS = (
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -100,6 +100,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(ROOT_DIR, 'templates'),
+    os.path.join(ROOT_DIR, 'frontend/templates'),
 )
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
@@ -123,6 +124,8 @@ INSTALLED_APPS = (
     'treebeard',
     
     'core',
+    'frontend',
+    'api'
 )
 
 # A sample logging configuration. The only tangible logging

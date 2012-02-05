@@ -36,3 +36,12 @@ Returns a list of stores retailing a particular product based on product id.
 
 /localisation/listproductretailers/id/long/lat/radius
 Same as above but narrowed down to user location.
+
+
+NOTES - SQLITE
+When running with SQLLite the spatialite database needs manual configuration.
+
+$ wget http://www.gaia-gis.it/spatialite-2.3.1/init_spatialite-2.3.sql.gz
+$ gunzip init_spatialite-2.3.sql.gz
+
+spatialite fairtradefinder.sql < init_spatialite-2.3.sql

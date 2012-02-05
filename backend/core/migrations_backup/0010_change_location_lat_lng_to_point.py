@@ -15,7 +15,7 @@ class Migration(SchemaMigration):
         db.delete_column('core_location', 'lon')
 
         # Adding field 'Location.point'
-        db.add_column('core_location', 'point', self.gf('django.contrib.gis.db.models.fields.PointField')(null=True, blank=True), keep_default=False)
+        db.add_column('core_location', 'point', self.gf('django.contrib.gis.db.models.fields.PointField')(srid=900913,null=True, blank=True), keep_default=False)
 
 
     def backwards(self, orm):

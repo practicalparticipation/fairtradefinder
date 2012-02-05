@@ -47,7 +47,7 @@ switch ($QUERY['action'])
 {
 	
 	case 'home':
-		
+		echo "TEST";
 		break;
 	
 	case 'shoplist':

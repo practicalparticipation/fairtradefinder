@@ -1,1 +1,12 @@
-hello world!
+ToDo:
+
+1) Finish individual outlet templates with product view
+2) Add product pages with extra information on them
+3) Get geocoding working for the front page
+4) Add map views
+5) Add social features
+
+
+
+Bugs:
+- Products are not getting categories assigned to them terribly well

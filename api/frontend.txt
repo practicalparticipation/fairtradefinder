@@ -1,0 +1,9 @@
+Currently in core
+
+URLS
+
+locale/location/id
+
+locale/locations/lat/lng
+
+locale/locations/

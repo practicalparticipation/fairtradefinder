@@ -1,0 +1,22 @@
+{% extends "page.html" %}
+
+{% block title %}Fairtrade available at {{location.qualified_name}}{% endblock %}
+
+{% block content %}
+    <h3>{{location.qualified_name}}</h3>
+
+    {{location.business_entity.website}}
+
+<div>
+    {% for category, list in products.items%}
+        <h5>{{category|capfirst}}</h5> 
+        {% for product in list %}
+            {{product}}
+        {% endfor %}    
+    {% endfor %}
+</div>
+
+
+
+
+{% endblock %}
