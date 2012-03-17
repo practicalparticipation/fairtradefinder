@@ -1,0 +1,46 @@
+{% extends "page.html" %}
+{% load static %}
+
+{% block title %}Fairtrade Finder{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDrengEMDpqFVn8s3exnUIdc5DdHaXhNH4&sensor=false"></script>
+<script type="text/javascript" src="{%get_static_prefix %}js/map.js"></script>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="locations_gmap ui-bar-c ui-corner-all ui-shadow" id="locations_gmap" >
+		Map loading...
+</div>
+<div class="location_detail_bar"><small>Current location: <span id="current_location">Unknown</span></small></div>
+
+<div class="location_bar" data-role="controlgroup" data-type="horizontal"><small><a href="#" id="locateUser" data-role="button" data-inline="true">Locate me</a> 
+	<a href="#" id="locationSearch" data-role="button" data-inline="true">Location search</a></small> 
+	</div>	
+	<div data-role="collapsible" id="LocationSearchContainer">
+   		<form id="LocationSearchForm" data-ajax="false"> 
+	   			
+				<label for="LocationSearchValue">Enter postcode or placename:</label>
+				<input type="text" name="LocationSearchValue" id="LocationSearchValue" value="" />
+				
+				<button type="submit" name="submit" id="LocationSearch" value="submit">Search</button>
+			
+		</fieldset>
+		</form>
+</div>
+
+
+	<div class="page-bottom">
+		
+		<ul data-role="listview" data-inset="true" data-filter="false">
+			<li><a id="BrowseRetailers" href="/view/locations/">Browse Retailers</a></li>
+			<li><a id="BrowseProducts" href="/view/products/">Browse Products</a></li>
+		</ul>
+
+
+	</div>
+
+
+{% endblock %}

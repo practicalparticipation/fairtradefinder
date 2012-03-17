@@ -1,0 +1,27 @@
+h3.location_name {
+	margin-bottom:0px;
+}
+
+div.adr {
+	margin-bottom:10px;	
+}
+
+div.extra_links {
+	font-size:smaller;
+}
+
+.fb-like-box {
+	background:white;
+}
+
+div.social_interaction_fb, div.social_interaction_twitter {
+	max-width:400px;
+	float:left;
+	margin-right:10px;
+}
+
+
+div.locations_gmap {
+	width:100%;
+	height:300px;
+}

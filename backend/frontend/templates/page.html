@@ -7,8 +7,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
 		<link rel="stylesheet" href="{% get_static_prefix %}/css/custom.css" />
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+		{% block scripts %}{% endblock %}
 	</head> 
 	
 	<body> 
@@ -16,7 +17,7 @@
 		<div data-role="page">
 
 			<div data-role="header">
-				<a href="/" data-icon="home">Home</a>
+				<a href="/view/" data-icon="home" data-ajax="false">Home</a>
 				<h1>{% block title %}Fairtrade Finder{% endblock %}</h1>
 				<a href="/" data-rel="back" data-icon="back">Back</a>
 			</div>
@@ -25,18 +26,7 @@
 				{% block content %}{% endblock %}
 			</div>
 			
-			<form action="index.php?action=keywordsearch" method="GET" data-ajax="false">
-				<div data-role="fieldcontain">
-			    <label for="KeywordSearch" class="ui-hidden-accessible">Search: </label>
-			    <input type="search" name="KeywordSearch" id="KeywordSearch" value="" />
-			    <input type="submit" value="Search" />
-				</div>
-			</form>
-			
-			<ul data-role="listview" data-inset="true" data-filter="false">
-				<li><a href="index.php?action=shoplist">Browse Retailers</a></li>
-				<li><a href="index.php?action=productlist">Browse Products</a></li>
-			</ul>
+
 			
 		</div>
 

@@ -17,9 +17,9 @@ class LocationListHandler(BaseHandler):
 	)
 	
 	def read(self, request, locale_slug):
-		locale = Locale.objects.get(slug=locale_slug)
-		base = Location.objects.filter(locale=locale)
-		
+				# base = Location.objects.filter(locale=locale)
+		base = Location.objects.filter()
+
 		if request.GET.get('business_id'):
 			base = base.filter(business_entity__id = request.GET['business_id'])
 		if request.GET.get('business_name'):
@@ -62,6 +62,8 @@ class LocationListHandler(BaseHandler):
 			base = base.distance(my_location).order_by('distance')
 			if request.GET.get('max_distance'):
 				base = base.filter(point__distance_lte=(my_location, D(m=request.GET['max_distance'])))
+			request.session['lat'] = request.GET.get('lat')
+			request.session['lng'] = request.GET.get('lng')
 		
 
 		results = base.distinct()
@@ -71,6 +73,7 @@ class LocationListHandler(BaseHandler):
 		    results = results[request.GET.get('offset'):]
 		if request.GET.get('limit'):
 			results = results[:request.GET['limit']]		
+		
 
 		return results
 

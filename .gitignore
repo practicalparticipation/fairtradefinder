@@ -1,1 +1,3 @@
 backend/local_settings.py
+backend/frontend/static/js/jquery-ui-map/demos
+*.svn

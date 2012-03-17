@@ -3,19 +3,73 @@
 {% block title %}Fairtrade available at {{location.qualified_name}}{% endblock %}
 
 {% block content %}
-    <h3>{{location.qualified_name}}</h3>
+<div id="fb-root"></div>
+{% if location.business_entity.facebook_name %}
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=104398598998";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+{% endif %}
 
-    {{location.business_entity.website}}
+<div class="vcard">
+	<span style="float:right"><img src="http://maps.googleapis.com/maps/api/staticmap?center={{location.lat}},{{location.lng}}&zoom=14&size=150x150&maptype=roadmap
+	&markers=color:blue%7Clabel:S%7C{{location.lat}},{{location.lng}}&sensor=false"/></span><h3 class="fn org location_name">{{location.qualified_name}}</h3>
+	  <div class="adr"><span class="type" style="display:none;">Work</span>
+	    <span class="street-address">{{location.address|linebreaksbr}}</span>
+	    {% if location.postcode %}, {% endif %} <span class="postal-code">{{location.postcode}}</span>
+	  </div>
 
-<div>
-    {% for category, list in products.items%}
-        <h5>{{category|capfirst}}</h5> 
-        {% for product in list %}
-            {{product}}
-        {% endfor %}    
-    {% endfor %}
+	{% if location.business_entity.website %}
+		<div class="location_website"><A class="url" href="{{location.business_entity.website}}" target="_blank">View company website</A></div>
+	{% endif %}
+
+	{% if location.business_entity.notes %}
+		<div class="location_description">{{location.business_entity.notes}}</div>
+	{% endif %}
+</div>{% comment %}End the vCard block {% endcomment %}
+
+<div class="extra_links">
+<a href="/view/locations/?business_id={{location.business_entity.id}}&lat={{location.lat}}&lng={{location.lng}}">View other {{location.business_entity.name}} outlets</a>
 </div>
 
+<div style="clear:both"><h3>Fairtrade Product Range</h3>
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    {% for category, list in products.items%}
+    	<div data-role="collapsible">
+        <h3>{{category|capfirst}}</h3> 
+        <ul>
+        {% for product in list %}
+            <li><A href="/view/product/{{product.id}}/">{{product}}</A></li>
+        {% endfor %}    
+		</ul>
+		</div>
+    {% endfor %}
+</div>
+</div>
+
+
+<div class="social_interaction">
+{% if location.business_entity.facebook_name %}
+	<div class="social_interaction_fb">
+	<h3>{{location.business_entity.name}} on Facebook</h3>
+	Feedback on your favorite Fairtrade products on their Facebook page.<br/>
+	<div class="fb-like-box" data-href="{{location.business_entity.facebook_name}}" data-width="400" data-height="300" data-show-faces="true" data-stream="true" data-header="false"></div><br/>
+	<em>Leaving a comment on a retailers Facebook page is a great way to tell them you care about their comittment to Fairtrade, or to ask them to stock more...</em>
+	</div>
+{% endif %}
+
+{% if location.business_entity.twitter_name %}
+	<div class="social_interaction_twitter">
+	<h3>{{location.business_entity.name}} on Twitter</h3>
+	<a href="https://twitter.com/intent/tweet?screen_name={{location.business_entity.twitter_name}}&text=Thanks%20for%20stocking%20Fairtrade%20%26%20making%20a%20difference%20to%20developing%20world%20producers" class="twitter-mention-button" data-related="oxfairtrade">Tweet @{{location.business_entity.twitter_name}}</a> to tell them about the Fairtrade products you like, or <a href="https://twitter.com/#!/search/realtime/fairtrade%20OR%20%22fair%20OR%20trade%22%20from%3A{{location.business_entity.twitter_name}}" target="_blank">check if they've been tweeting about Fairtrade recently</a>.<br/>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+{% endif %}
+
+
+</div>
 
 
 

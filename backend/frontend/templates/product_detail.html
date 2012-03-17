@@ -1,0 +1,12 @@
+{% extends "page.html" %}
+
+{% block title %}About Fairtrade {{product.name}}{% endblock %}
+
+{% block content %}
+<h3>{{product.name}}</h3>
+{{product.description}}
+
+
+<a href="/view/locations/?product_id={{product.id}}&lat={{lat}}&lng={{lng}}" data-role="button">Find it nearby</a>
+
+{% endblock %}

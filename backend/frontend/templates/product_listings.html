@@ -1,0 +1,22 @@
+{% extends "page.html" %}
+
+{% block title %}Fairtrade Products{% endblock %}
+
+{% block content %}
+<div style="clear:both"><h3>Fairtrade Product Range</h3>
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    {% for category, list in products.items%}
+        <div data-role="collapsible">
+        <h3>{{category|capfirst}}</h3> 
+        <ul data-role="listview">
+        {% for product in list %}
+            <li><A href="/view/product/{{product.id}}/">{{product}}</A></li>
+        {% endfor %}    
+        </ul>
+        </div>
+    {% endfor %}
+</div>
+</div>
+
+
+{% endblock %}
